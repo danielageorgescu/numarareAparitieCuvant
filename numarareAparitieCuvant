@@ -1,0 +1,32 @@
+package com.itfactory;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Main {
+
+    public static int countMatches(String text, String keyword) {
+
+        Matcher matcher = Pattern.compile(keyword).matcher(text);
+        int count = 0;
+        while (matcher.find()) {
+            count++;
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduceti un text: ");
+        String text = scanner.nextLine();
+
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.println("Cuvantul cautat in textul ce urmeaza este: ");
+        String keyword = scanner1.nextLine();
+
+        int count = countMatches(text, keyword);
+        System.out.println(count);
+    }
+}
